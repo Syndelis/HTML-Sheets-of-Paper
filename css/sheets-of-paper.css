@@ -52,7 +52,7 @@
 		page-break-after: avoid;
 	}
 	/* For all paragraph tags */
-	p {
+	p.single {
 		/* Reset the margin so that the text starts and ends at the expected marks */
 		margin: 0;
 		font-size: 24pt;
@@ -60,6 +60,16 @@
 		text-align: justify;
 		text-justify: inter-word;
 	}
+
+	p.double {
+		/* Reset the margin so that the text starts and ends at the expected marks */
+		margin: 0;
+		font-size: 16pt;
+		line-height: 1.3;
+		text-align: justify;
+		text-justify: inter-word;
+	}
+
 	/* For adjacent paragraph tags */
 	p + p {
 		/* Restore the spacing between the paragraphs */
@@ -113,12 +123,17 @@
 		left: -9999px;
 	}
 
-	img {
+	img.single {
 		height: 198mm;
 		width: 210mm;
 	}
 
-	.row.breakable {
+	img.double {
+		height: 98mm;
+		width: 104mm;
+	}
+
+	.row.single {
 		display: block;
 	}
 
