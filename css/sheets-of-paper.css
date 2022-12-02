@@ -129,8 +129,8 @@
 	}
 
 	img.single {
-		aspect-ratio: 210/198;
-		height: 198mm;
+		aspect-ratio: 210/180;
+		height: 180mm;
 		width: 210mm;
 		padding: 0.25cm;
 	}
@@ -164,6 +164,12 @@
 		/* make it semi-transparent */
 		opacity: 0.8;
 		margin: 0;
+		padding: 0;
+	}
+
+	h1.single {
+		font-size: 38pt;
+		font-weight: bolder;
 		padding: 0;
 	}
 
