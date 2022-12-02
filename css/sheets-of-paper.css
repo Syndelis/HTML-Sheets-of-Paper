@@ -6,15 +6,6 @@
 
 /* Styles that are shared by all elements */
 
-/* Use CSS Paged Media to switch from continuous documents to sheet-like documents with separate pages */
-@page {
-	/* You can only change the size, margins, orphans, widows and page breaks here */
-
-	/* Require that at least this many lines of a paragraph must be left at the bottom of a page */
-	orphans: 4;
-	/* Require that at least this many lines of a paragraph must be left at the top of a new page */
-	widows: 2;
-}
 /* When the document is actually printed */
 @media print {
 	html, body {
@@ -22,6 +13,8 @@
 		margin: 0;
 		/* Reset the document's padding values */
 		padding: 0;
+		box-sizing: border-box;
+		border-collapse: collapse;
 		/* Use the platform's native font as the default */
 		font-family: "Roboto", -apple-system, "San Francisco", "Segoe UI", "Helvetica Neue", sans-serif;
 		/* Define a reasonable base font size */
@@ -29,12 +22,18 @@
 
 		/* Reset the document's background color */
 		background-color: #fff;
+
+		width: 100%;
+		height: 100%;
 	}
 
-	* {
-		/* Include the content box as well as padding and border for precise definitions */
-		box-sizing: border-box;
-		-moz-box-sizing: border-box;
+	main {
+		display: block;
+		justify-content: center;
+	}
+
+	.with-bg {
+		background-image: url("/public/polygons.jpg?v=0");
 	}
 
 	/* Defines a class for manual page breaks via inserted .page-break element */
@@ -54,11 +53,13 @@
 	/* For all paragraph tags */
 	p.single {
 		/* Reset the margin so that the text starts and ends at the expected marks */
-		margin: 0;
+		margin-top: 0;
+		margin-bottom: 0.2cm;
 		font-size: 24pt;
 		line-height: 1.3;
 		text-align: justify;
 		text-justify: inter-word;
+		padding: 0.25cm
 	}
 
 	p.double {
@@ -77,10 +78,8 @@
 	}
 
 	h1 {
-		margin-bottom: 0;
-	}
-	h1 + p {
-		margin-top: 0.25cm;
+		margin: 0;
+		line-height: 1;
 	}
 	/* For links in the document */
 	a {
@@ -123,18 +122,39 @@
 		left: -9999px;
 	}
 
+	img {
+		border-radius: 2%;
+	}
+
 	img.single {
+		aspect-ratio: 210/198;
 		height: 198mm;
 		width: 210mm;
+		padding: 0.25cm;
 	}
 
 	img.double {
-		height: 98mm;
+		aspect-ratio: 104/120;
+		height: 120mm;
 		width: 104mm;
+	}
+
+	img.showcase {
+		width: 210mm;
+		height: auto;
+		padding: 0.25cm;
 	}
 
 	.row.single {
 		display: block;
+	}
+
+	.row.double {
+		justify-content: space-between;
+	}
+
+	.apartments {
+		justify-content: space-evenly;
 	}
 
 	input, .area-of-text {
